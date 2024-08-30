@@ -24,13 +24,7 @@ button.BackgroundColor3 = Color3.fromRGB(255, 255, 255) -- Màu nền của nút
 local gradient = Instance.new("UIGradient")
 gradient.Rotation = 90
 gradient.Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)), -- Màu đỏ
-    ColorSequenceKeypoint.new(0.167, Color3.fromRGB(255, 255, 0)), -- Màu vàng
-    ColorSequenceKeypoint.new(0.333, Color3.fromRGB(0, 255, 0)), -- Màu xanh lá cây
-    ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 255)), -- Màu xanh lam
-    ColorSequenceKeypoint.new(0.667, Color3.fromRGB(0, 0, 255)), -- Màu xanh dương
-    ColorSequenceKeypoint.new(0.833, Color3.fromRGB(255, 0, 255)), -- Màu tím
-    ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 0, 0)) -- Màu đỏ
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(71, 66, 64)), -- Màu đỏ
 }
 gradient.Parent = button -- Đặt Gradient là con của nút
 
@@ -125,8 +119,8 @@ local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/d
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Gamer144roblox/Ch-ng-skid-/main/Key-System%20%26%20Keyless%20Test.txt"))()
 local Window = Fluent:CreateWindow({
-    Title = "BEST HUB | ".._G.Version,
-    SubTitle = "By Huy and Best Trial",
+    Title = "IDK Hub ".._G.Version,
+    SubTitle = "Version: [Premium Ver]  - By Discord: buiphamducnhan!",
     TabWidth = 80,
     Size = UDim2.fromOffset(500, 350),
     Acrylic = false,
@@ -134,18 +128,18 @@ local Window = Fluent:CreateWindow({
     MinimizeKey = Enum.KeyCode.End
 })
 local Tabs = {
-    Main = Window:AddTab({ Title = "chính", Icon = "" }),
-    Stats = Window:AddTab({ Title = "chỉ số", Icon = "" }),
-    Player = Window:AddTab({ Title = "người chơi", Icon = "" }),
-    Teleport = Window:AddTab({ Title = "tele đảo", Icon = "" }),
-    Fruit = Window:AddTab({ Title = "trái", Icon = "" }),
-    Raid = Window:AddTab({ Title = "tập kích", Icon = "" }),
-    Visual = Window:AddTab({ Title = "Visual", Icon = "" }),
+    Main = Window:AddTab({ Title = "Main", Icon = "" }),
+    Stats = Window:AddTab({ Title = "Stats", Icon = "" }),
+    Player = Window:AddTab({ Title = "PvP Setting", Icon = "" }),
+    Teleport = Window:AddTab({ Title = "TP Island", Icon = "" }),
+    Fruit = Window:AddTab({ Title = "Fruit", Icon = "" }),
+    Raid = Window:AddTab({ Title = "Raid", Icon = "" }),
+    Visual = Window:AddTab({ Title = "Misc", Icon = "" }),
     St = Window:AddTab({ Title = "Status Sever", Icon = "" }),    
-    Race = Window:AddTab({ Title = "Tộc V4", Icon = "" }),
-    Shop = Window:AddTab({ Title = "cửa hàng", Icon = "" }),
-	Misc = Window:AddTab({ Title = "khác", Icon = "" }),
-    Setting = Window:AddTab({ Title = "cài đặt", Icon = "" }),
+    Race = Window:AddTab({ Title = "V4 Race Trials", Icon = "" }),
+    Shop = Window:AddTab({ Title = "Shop", Icon = "" }),
+	Misc = Window:AddTab({ Title = "Other", Icon = "" }),
+    Setting = Window:AddTab({ Title = "Setting Menu", Icon = "" }),
 }
 local Options = Fluent.Options
 do
@@ -3612,7 +3606,7 @@ local boss = Tabs.Main:AddSection("Farm Boss")
         end
     end
 
-      local ToggleTPKitsune = Tabs.Main:AddToggle("ToggleTPKitsune", {Title = "Di Chuyển Đến Đảo Kisune",Description = "", Default = false })
+      local ToggleTPKitsune = Tabs.Main:AddToggle("ToggleTPKitsune", {Title = "TP To Kítune Island",Description = "", Default = false })
       ToggleTPKitsune:OnChanged(function(Value)
         _G.TweenToKitsune = Value
       end)
@@ -6161,7 +6155,7 @@ end)
         end
     })
     
-    local Toggle = Tabs.St:AddToggle("MyToggle", {Title = "Spam Join Job Id", Default = false })
+    local Toggle = Tabs.St:AddToggle("MyToggle", {Title = "Auto Join Job ID", Default = false })
     Toggle:OnChanged(function(Value)
   _G.Join = Value
 		end)
@@ -6206,7 +6200,7 @@ end
 
 LockMoon()
 
-local LockMoonToggle = Tabs.Race:AddToggle("LockMoon_Toggle", {Title = "Khoá nhìn vào moon", Default = false })
+local LockMoonToggle = Tabs.Race:AddToggle("LockMoon_Toggle", {Title = "Auto lock moon", Default = false })
 Options.LockMoon_Toggle:SetValue(false)
 
 LockMoonToggle:OnChanged(function(value)
@@ -6235,7 +6229,7 @@ Tabs.Race:AddButton({
 
 
 Tabs.Race:AddButton({
-    Title = "Npc Mua Bánh Răng",
+    Title = "Ancient One",
     Description = "",
     Callback = function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(28286.35546875, 14895.3017578125, 102.62469482421875))
@@ -6247,7 +6241,7 @@ Tabs.Race:AddButton({
 
 local Mastery = Tabs.Race:AddSection("Auto Race")
 Tabs.Race:AddButton({
-    Title = "Tộc Của bạn",
+    Title = "Your race:",
     Description = "",
     Callback = function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(28286.35546875, 14895.3017578125, 102.62469482421875))
@@ -6269,14 +6263,14 @@ Tabs.Race:AddButton({
 })
 
 
-local ToggleHumanandghoul = Tabs.Race:AddToggle("ToggleHumanandghoul", {Title = "Hoàn thành Tộc quỷ + người",Description = "", Default = false })
+local ToggleHumanandghoul = Tabs.Race:AddToggle("ToggleHumanandghoul", {Title = "Complete Ghoul/Human Race ",Description = "", Default = false })
 ToggleHumanandghoul:OnChanged(function(Value)
     KillAura = Value
 end)
 Options.ToggleHumanandghoul:SetValue(false)
 
 
-local ToggleAutotrial = Tabs.Race:AddToggle("ToggleAutotrial", {Title = "Tụ Động hoàn thành ải",Description = "", Default = false })
+local ToggleAutotrial = Tabs.Race:AddToggle("ToggleAutotrial", {Title = "Auto Complete Trials",Description = "", Default = false })
 ToggleAutotrial:OnChanged(function(Value)
     _G.AutoQuestRace = Value
 end)
@@ -6445,7 +6439,7 @@ spawn(function()
     end
 end)
 
-local Toggle = Tabs.Race:AddToggle("MyToggle", {Title = "Kill Player When Trial Complete [Spam Skill]", Default = false })
+local Toggle = Tabs.Race:AddToggle("MyToggle", {Title = "Kill Player When Trial Done", Default = false })
 
     Toggle:OnChanged(function(Value)
         KillPlayerSpam = Value
@@ -6490,7 +6484,7 @@ spawn(function()
     end
 end)
 
-local ToggleRandomBone = Tabs.Shop:AddToggle("ToggleRandomBone", {Title = "Đổi xương",Description = "", Default = false })
+local ToggleRandomBone = Tabs.Shop:AddToggle("ToggleRandomBone", {Title = "Random Bone",Description = "", Default = false })
 ToggleRandomBone:OnChanged(function(Value)  
 		_G.AutoRandomBone = Value
 end)
@@ -6512,7 +6506,7 @@ spawn(function()
 
 
 Tabs.Shop:AddButton({
-	Title = "Mua nhảy liên tục",
+	Title = "Buy Sky Jump",
 	Description = "",
 	Callback = function()
 		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Geppo")
@@ -6522,7 +6516,7 @@ Tabs.Shop:AddButton({
 
 
 Tabs.Shop:AddButton({
-	Title = "Mua haki vũ trang",
+	Title = "Buy Black Haki",
 	Description = "",
 	Callback = function()
 		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Buso")
@@ -6533,7 +6527,7 @@ Tabs.Shop:AddButton({
 
 
 Tabs.Shop:AddButton({
-	Title = "Mua dịch chuyển (soru)",
+	Title = "Buy Flash Step",
 	Description = "",
 	Callback = function()
 		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Soru")
@@ -6542,7 +6536,7 @@ Tabs.Shop:AddButton({
 
 
 Tabs.Shop:AddButton({
-	Title = "Mua haki quan sát",
+	Title = "Buy Obervation Haki",
 	Description = "",
 	Callback = function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("KenTalk","Buy")
@@ -6553,7 +6547,7 @@ local Mastery = Tabs.Shop:AddSection("Fighting Styles")
 
 
 Tabs.Shop:AddButton({
-	Title = "Mua black leg",
+	Title = "Buy Black Leg",
 	Description = "",
 	Callback = function()
 		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyBlackLeg")
@@ -6561,21 +6555,21 @@ Tabs.Shop:AddButton({
 })
 
 Tabs.Shop:AddButton({
-	Title = "Mua electro",
+	Title = "Buy Electro",
 	Description = "",
 	Callback = function()
 		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectro")
 	end
 })
 Tabs.Shop:AddButton({
-	Title = "Mua fishman karate",
+	Title = "Buy Fish Man Karate",
 	Description = "",
 	Callback = function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyFishmanKarate")
 	end
 })
 Tabs.Shop:AddButton({
-	Title = "Mua dragon claw",
+	Title = "Buy Dragon Claw",
 	Description = "",
 	Callback = function()
 		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","DragonClaw","1")
@@ -6583,7 +6577,7 @@ Tabs.Shop:AddButton({
 	end
 })
 Tabs.Shop:AddButton({
-	Title = "Mua superhuman",
+	Title = "Buy Super Human",
 	Description = "",
 	Callback = function()
 		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySuperhuman")
@@ -6591,13 +6585,13 @@ Tabs.Shop:AddButton({
 })
 Tabs.Shop:AddButton({
 	Title = "Death Step",
-	Description = "Mua Death Step",
+	Description = "Buy Death Step",
 	Callback = function()
 		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDeathStep")
 	end
 })
 Tabs.Shop:AddButton({
-	Title = "Mua sharkman karate",
+	Title = "Buy Sharkman Karate",
 	Description = "",
 	Callback = function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate",true)
@@ -6605,21 +6599,21 @@ Tabs.Shop:AddButton({
 	end
 })
 Tabs.Shop:AddButton({
-	Title = "Mua electric claw",
+	Title = "Buy Electric Claw",
 	Description = "",
 	Callback = function()
 		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw")
 	end
 })
 Tabs.Shop:AddButton({
-	Title = "Mua dragon talon",
+	Title = "Buy Dragon Talon",
 	Description = "",
 	Callback = function()
 		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
 	end
 })
 Tabs.Shop:AddButton({
-	Title = "Mua godhuman",
+	Title = "Buy God Human",
 	Description = "",
 	Callback = function()
 		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman")
@@ -6627,7 +6621,7 @@ Tabs.Shop:AddButton({
 })
 
 Tabs.Shop:AddButton({
-    Title = "Mua Sanguine Art",
+    Title = "Buy Saguine Art",
     Description = "",
     Callback = function()            
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySanguineArt")
@@ -6635,10 +6629,10 @@ Tabs.Shop:AddButton({
 })
 
 
-local Mastery = Tabs.Shop:AddSection("Vật Phẩm Khác")
+local Mastery = Tabs.Shop:AddSection("Other Items")
 
 Tabs.Shop:AddButton({
-	Title = "Hoàn trả chỉ số",
+	Title = "Reset Stats",
 	Description = "",
 	Callback = function()
 		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","Refund","1")
@@ -6646,7 +6640,7 @@ Tabs.Shop:AddButton({
 	end
 })
 Tabs.Shop:AddButton({
-	Title = "Đổi tộc",
+	Title = "Change Race",
 	Description = "",
 	Callback = function()
 		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","Reroll","1")
@@ -6655,7 +6649,7 @@ Tabs.Shop:AddButton({
 })
 
 Tabs.Misc:AddButton({
-	Title = "tham gia lại máy chủ",
+	Title = "Rejoin Server",
 	Description = "",
 	Callback = function()
 		game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
@@ -6664,7 +6658,7 @@ Tabs.Misc:AddButton({
 
 
 Tabs.Misc:AddButton({
-	Title = "Đổi máy chủ",
+	Title = "Hop server",
 	Description = "",
 	Callback = function()
 		Hop()
@@ -6738,7 +6732,7 @@ local Mastery = Tabs.Misc:AddSection("Đội")
 
 
 Tabs.Misc:AddButton({
-	Title = "Vào hải tặc",
+	Title = "Join Pirates",
 	Description = "",
 	Callback = function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetTeam","Pirates") 
@@ -6747,17 +6741,17 @@ Tabs.Misc:AddButton({
 
 
 Tabs.Misc:AddButton({
-	Title = "Vào hải quân",
+	Title = "Join Marines",
 	Description = "",
 	Callback = function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetTeam","Marines") 
 	end
 })
 
-local Mastery = Tabs.Misc:AddSection("Mở Ui")
+local Mastery = Tabs.Misc:AddSection("Open Ui")
 
 Tabs.Misc:AddButton({
-	Title = "Mở cửa hàng trái",
+	Title = "Open Blox Fruits Shop",
 	Description = "",
 	Callback = function()
 		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("GetFruits")
@@ -6768,7 +6762,7 @@ Tabs.Misc:AddButton({
 
 
 Tabs.Misc:AddButton({
-	Title = "Mở bảng haki",
+	Title = "Open Haki Pad",
 	Description = "",
 	Callback = function()
 		game.Players.localPlayer.PlayerGui.Main.Colors.Visible = true
@@ -6778,7 +6772,7 @@ Tabs.Misc:AddButton({
 
 
 Tabs.Misc:AddButton({
-	Title = "Mở bảng danh hiệu",
+	Title = "Open Title Box",
 	Description = "",
 	Callback = function()
 		local args = {
@@ -6792,7 +6786,7 @@ Tabs.Misc:AddButton({
 
 
 Tabs.Misc:AddButton({
-	Title = "Mở bảng thức tỉnh chiêu",
+	Title = "Open Awakened Pad",
 	Description = "",
 	Callback = function()
         game:GetService("Players").LocalPlayer.PlayerGui.Main.AwakeningToggler.Visible = true
@@ -6825,7 +6819,7 @@ spawn(function()
     local Mastery = Tabs.Misc:AddSection("Kaitun Cap")
 
 Tabs.Misc:AddButton({
-	Title = "Hiện thị vật phẩm",
+	Title = "Kaitun Picture",
 	Description = "",
 	Callback = function()
 		do
@@ -6989,7 +6983,7 @@ Tabs.Misc:AddButton({
 		tvk.FillDirectionMaxCells = 100
 		tvk.FillDirection = Enum.FillDirection.Horizontal
 	
-		local cac = { "Superhuman", "ElectricClaw", "DragonTalon", "SharkmanKarate", "DeathStep", "GodHuman" }
+		local cac = { "Super human", "Electric Claw", "Dragon Talon", "Sharkman Karate", "Death Step", "God Human" }
 		for k, v in pairs(cac) do
 			if ListHuhu[v] and game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Buy" .. v, true) == 1 then
 				local huhu = Instance.new("ImageLabel", MeleeG)
@@ -7063,7 +7057,7 @@ Tabs.Misc:AddButton({
 local Mastery = Tabs.Misc:AddSection("Ngày")
 
 Tabs.Misc:AddButton({
-	Title = "Xóa xương mù",
+	Title = "Remove Fog",
 	Description = "",
 	Callback = function()
         NoFog()
@@ -7080,7 +7074,7 @@ function NoFog()
 end
 
 Tabs.Misc:AddButton({
-	Title = "Luôn Luôn ngày",
+	Title = "Always Day",
 	Description = "",
 	Callback = function()
         game:GetService("RunService").Heartbeat:wait() do
@@ -7093,7 +7087,7 @@ Tabs.Misc:AddButton({
 local SettingFarm = Tabs.Setting:AddSection("Farming")
 
 
-    local ToggleBringMob = Tabs.Setting:AddToggle("ToggleBringMob", {Title = "Gom Quái",Description = "", Default = true })
+    local ToggleBringMob = Tabs.Setting:AddToggle("ToggleBringMob", {Title = "Bring Mob",Description = "", Default = true })
     ToggleBringMob:OnChanged(function(Value)
         _G.BringMob = Value
     end)
@@ -7145,14 +7139,14 @@ local SettingFarm = Tabs.Setting:AddSection("Farming")
             end
             
 
-    local ToggleBypassTP = Tabs.Setting:AddToggle("ToggleBypassTP", {Title = "Di Chuyển Dạng Reset",Description = "", Default = false })
+    local ToggleBypassTP = Tabs.Setting:AddToggle("ToggleBypassTP", {Title = "Instance TP",Description = "", Default = true })
     ToggleBypassTP:OnChanged(function(Value)
         BypassTP = Value
     end)
     Options.ToggleBypassTP:SetValue(false)
 
 
-local ToggleRemove = Tabs.Setting:AddToggle("ToggleRemove", {Title = "Ẩn Dame Đánh Quái",Description = "", Default = true })
+local ToggleRemove = Tabs.Setting:AddToggle("ToggleRemove", {Title = "Remove damage text",Description = "", Default = false })
 ToggleRemove:OnChanged(function(Value)
     _G.RemoveDameText = Value
     end)
@@ -7169,7 +7163,7 @@ ToggleRemove:OnChanged(function(Value)
         end)
 
 
-local Toggle = Tabs.Setting:AddToggle("MyToggle", {Title = "Click 0s", Default = false })
+local Toggle = Tabs.Setting:AddToggle("MyToggle", {Title = "Super Fast Click", Default = true })
 
     Toggle:OnChanged(function(Value)
       _G.FastAttack4 = Value
@@ -7188,7 +7182,7 @@ local Toggle = Tabs.Setting:AddToggle("MyToggle", {Title = "Click 0s", Default =
 end)
 
         
-local ToggleRemoveNotify = Tabs.Setting:AddToggle("ToggleRemoveNotify", {Title = "Xoá Hết Thông báo",Description = "", Default = false })
+local ToggleRemoveNotify = Tabs.Setting:AddToggle("ToggleRemoveNotify", {Title = "Clear all Notification",Description = "", Default = false })
 ToggleRemoveNotify:OnChanged(function(Value)
     RemoveNotify = Value
     end)
@@ -7206,7 +7200,7 @@ ToggleRemoveNotify:OnChanged(function(Value)
 
 
 
-    local ToggleWhite = Tabs.Setting:AddToggle("ToggleWhite", {Title = "Màn hình Trắng (giảm lag)",Description = "", Default = false })
+    local ToggleWhite = Tabs.Setting:AddToggle("ToggleWhite", {Title = "Ưhite screen (FPS Boost)",Description = "", Default = false })
     ToggleWhite:OnChanged(function(Value)
        _G.WhiteScreen = Value
        if _G.WhiteScreen == true then
@@ -7220,44 +7214,44 @@ ToggleRemoveNotify:OnChanged(function(Value)
 
 
         local SKill = Tabs.Setting:AddSection("Skill Mastery")
-local ToggleZ = Tabs.Setting:AddToggle("ToggleZ", {Title = "Kĩ Năng Z",Description = "", Default = true })
+local ToggleZ = Tabs.Setting:AddToggle("ToggleZ", {Title = "Z move",Description = "", Default = true })
 ToggleZ:OnChanged(function(Value)
     SkillZ = Value
 end)
 Options.ToggleZ:SetValue(true)
 
-local ToggleX = Tabs.Setting:AddToggle("ToggleX", {Title = "Kĩ Năng X", Description = "",Default = true })
+local ToggleX = Tabs.Setting:AddToggle("ToggleX", {Title = "X move", Description = "",Default = true })
 ToggleX:OnChanged(function(Value)
     SkillX = Value
 end)
 Options.ToggleX:SetValue(true)
 
 
-local ToggleC = Tabs.Setting:AddToggle("ToggleC", {Title = "Kĩ Năng C",Description = "", Default = true })
+local ToggleC = Tabs.Setting:AddToggle("ToggleC", {Title = "C move",Description = "", Default = true })
 ToggleC:OnChanged(function(Value)
     SkillC = Value
 end)
 Options.ToggleC:SetValue(true)
 
 
-local ToggleV = Tabs.Setting:AddToggle("ToggleV", {Title = "Kĩ Năng V",Description = "", Default = true })
+local ToggleV = Tabs.Setting:AddToggle("ToggleV", {Title = "V move",Description = "", Default = true })
 ToggleV:OnChanged(function(Value)
     SkillV = Value
 end)
 Options.ToggleV:SetValue(true)
 
 
-local ToggleF = Tabs.Setting:AddToggle("ToggleF", {Title = "Kĩ Năng F",Description = "", Default = false })
+local ToggleF = Tabs.Setting:AddToggle("ToggleF", {Title = "F move",Description = "", Default = false })
 ToggleF:OnChanged(function(Value)
    SkillF = Value
     end)
 Options.ToggleF:SetValue(false)
 
 
-local Pos = Tabs.Setting:AddSection("Khoảng Cách Farm")
+local Pos = Tabs.Setting:AddSection("Farm Distance")
 
 local SliderPosX = Tabs.Setting:AddSlider("SliderPosX", {
-    Title = "Hướng X",
+    Title = "X direction",
     Description = "",
     Default = 0,
     Min = -60,
@@ -7273,7 +7267,7 @@ end)
 SliderPosX:SetValue(0)
 
 local SliderPosY = Tabs.Setting:AddSlider("SliderPosY", {
-    Title = "Hướng Y",
+    Title = "Y direction",
     Description = "",
     Default = 30,
     Min = -60,
@@ -7289,7 +7283,7 @@ end)
 SliderPosY:SetValue(30)
 
 local SliderPosZ = Tabs.Setting:AddSlider("SliderPosZ", {
-    Title = "Hướng Z",
+    Title = "Z direction",
     Description = "",
     Default = 0,
     Min = -60,
